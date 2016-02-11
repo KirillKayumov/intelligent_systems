@@ -39,7 +39,7 @@ Average points: 1
 
 [:clean, :clean, :clean, :clean, :clean, :dirty]
 
-Points: 13
+**Points: 13**
 
 
 [:clean]
@@ -58,7 +58,7 @@ Points: 13
 
 [:dirty]
 
-Points: 4
+**Points: 4**
 
 
 [:clean, :dirty, :clean, :clean, :clean, :clean, :clean, :clean]
@@ -67,4 +67,4 @@ Points: 4
 
 [:clean, :clean, :clean, :clean, :dirty, :clean, :dirty, :clean]
 
-Points: 6
+**Points: 6**
