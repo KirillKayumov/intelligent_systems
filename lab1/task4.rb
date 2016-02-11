@@ -1,11 +1,11 @@
-def rand_int(limit)
+def rand_int(limit) # функция для получения случайного целого числа от 1 до limit
   (1..limit).to_a.sample
 end
 
 class Agent # простой рефлексивный агент
   def reflex(move_options, status)
     move_options.select! { |_, value| value }
-    action = move_options.to_a.sample.first
+    action = move_options.to_a.sample.first # случайное определение направления движения
 
     if status == :dirty
       :suck
@@ -24,7 +24,7 @@ class Environment # описание среды
     @map_height, @map_width = rand_int(10), rand_int(10)
     @map = []
 
-    map_height.times do
+    map_height.times do # случайное построение среды
       @map << []
       map_width.times do
         @map.last << (rand_int(100) % 3 == 0 ? :dirty : :clean)
@@ -35,10 +35,10 @@ class Environment # описание среды
   def run
     agent = Agent.new
     points = 0 # очки, набранные агентом
-    location = [0, 0]
+    location = [0, 0] # начальная позиция агента
 
     AGENT_LIFE_TIME.times do |time|
-      move_options = {
+      move_options = { # структура с определениями, куда агент может передвигаться
         :up => location.first > 0,
         :right => location.last < map_width - 1,
         :down => location.first < map_height - 1,
