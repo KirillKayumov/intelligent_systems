@@ -51,6 +51,7 @@ average_points = 0
   [[:clean, :clean], 0],
   [[:clean, :clean], 1]
 ].each do |map, location|
+  print "#{map} | "
   environment = Environment.new map
   points = environment.run location
   average_points += points
