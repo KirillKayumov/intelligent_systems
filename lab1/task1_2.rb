@@ -1,4 +1,4 @@
-class Agent
+class Agent # простой рефлексивный агент
   def reflex(location, status)
     if status == :dirty
       :suck
@@ -10,10 +10,10 @@ class Agent
   end
 end
 
-class Environment
+class Environment # описание среды
   attr_reader :map
 
-  AGENT_LIFE_TIME = 1000
+  AGENT_LIFE_TIME = 1000 # время работы агента
 
   def initialize(map)
     @map = map
@@ -21,13 +21,13 @@ class Environment
 
   def run(location)
     agent = Agent.new
-    points = 0
+    points = 0 # очки, набранные агентом
 
     AGENT_LIFE_TIME.times do |time|
       action = agent.reflex(location, map[location])
       if action == :suck
         map[location] = :clean
-        points += 1
+        points += 1 # прибавляем очки за очищенные клетки
       elsif action == :right
         location = 1
       elsif action == :left
@@ -35,12 +35,12 @@ class Environment
       end
     end
 
-    points
+    points # возвращаем кол-во набранных очков
   end
 end
 
 average_points = 0
-
+# вывод статистики на всех возможных конфигурациях
 [
   [[:dirty, :dirty], 0],
   [[:dirty, :dirty], 1],
